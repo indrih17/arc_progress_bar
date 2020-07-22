@@ -5,7 +5,7 @@ buildscript {
     }
 
     val kotlinVersion: String by extra("1.3.72")
-    val kotlin_version by extra("1.3.72")
+    val fragmentKtxVersion: String by extra("1.2.5")
 
     dependencies {
         classpath("com.android.tools.build:gradle:4.0.1")

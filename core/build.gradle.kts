@@ -27,7 +27,6 @@ android {
 dependencies {
     // AndroidX
     implementation("com.google.android.material:material:1.1.0")
-    implementation("androidx.core:core-ktx:1.3.0")
 }
 
 tasks.withType<KotlinCompile> {

@@ -28,8 +28,8 @@ dependencies {
     implementation(project(":core"))
 
     // AndroidX
-    implementation("com.google.android.material:material:1.1.0")
-    implementation("androidx.core:core-ktx:1.3.0")
+    val fragmentKtxVersion: String by rootProject.extra
+    implementation("androidx.fragment:fragment-ktx:$fragmentKtxVersion")
 }
 
 tasks.withType<KotlinCompile> {
