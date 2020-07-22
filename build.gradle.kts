@@ -4,13 +4,9 @@ buildscript {
         google()
     }
 
-    val kotlinVersion: String by extra("1.3.72")
-    val fragmentKtxVersion: String by extra("1.2.5")
-
     dependencies {
-        classpath("com.android.tools.build:gradle:4.0.1")
-        classpath("com.novoda:bintray-release:0.8.0")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath(BuildPlugin.Classpath.gradle)
+        classpath(BuildPlugin.Classpath.kotlin)
     }
 }
 
@@ -18,5 +14,7 @@ allprojects {
     repositories {
         jcenter()
         google()
+        jcenter()
+        mavenCentral()
     }
 }

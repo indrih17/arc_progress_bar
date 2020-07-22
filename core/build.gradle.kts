@@ -9,12 +9,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
-    buildToolsVersion("30.0.0")
+    compileSdkVersion(AndroidProject.compileSdkVersion)
+    buildToolsVersion(AndroidProject.buildToolsVersion)
 
     defaultConfig {
-        minSdkVersion(16)
-        targetSdkVersion(30)
+        minSdkVersion(AndroidProject.minSdkVersion)
+        targetSdkVersion(AndroidProject.targetSdkVersion)
     }
 
     sourceSets {
@@ -25,12 +25,11 @@ android {
 }
 
 dependencies {
-    // AndroidX
-    implementation("com.google.android.material:material:1.1.0")
+    implementation(Dependency.AndroidX.material)
 }
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = AndroidProject.jvmTarget
     }
 }

@@ -6,15 +6,16 @@ plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("android.extensions")
+    id("maven-publish")
 }
 
 android {
-    compileSdkVersion(30)
-    buildToolsVersion("30.0.0")
+    compileSdkVersion(AndroidProject.compileSdkVersion)
+    buildToolsVersion(AndroidProject.buildToolsVersion)
 
     defaultConfig {
-        minSdkVersion(21)
-        targetSdkVersion(30)
+        minSdkVersion(AndroidProject.minSdkVersion)
+        targetSdkVersion(AndroidProject.targetSdkVersion)
     }
 
     sourceSets {
@@ -26,14 +27,28 @@ android {
 
 dependencies {
     implementation(project(":core"))
-
-    // AndroidX
-    val fragmentKtxVersion: String by rootProject.extra
-    implementation("androidx.fragment:fragment-ktx:$fragmentKtxVersion")
+    implementation(Dependency.AndroidX.fragment)
 }
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = AndroidProject.jvmTarget
     }
+}
+
+val publicationGroupId: String = project.requireProperty(name = "publication.groupId")
+val publicationVersionName: String = project.requireProperty(name = "publication.arc.versionName")
+
+group = publicationGroupId
+version = publicationVersionName
+
+publishing {
+    configure(
+        project = project,
+        bintrayOrg = project.requireProperty("publication.bintray.org"),
+        bintrayRepo = project.requireProperty(name = "publication.bintray.repo"),
+        groupId = publicationGroupId,
+        artifactId = project.requireProperty(name = "publication.arc.artifactId"),
+        versionName = publicationVersionName
+    )
 }
