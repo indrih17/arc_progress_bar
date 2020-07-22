@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="progress_bright_red">#ED9191</color>
+    <color name="progress_bright_yellow">#FCC838</color>
+    <color name="progress_bright_green">#A1DF5D</color>
+    <color name="progress_dim_red">#3DED9191</color>
+    <color name="progress_dim_yellow">#3DFCC838</color>
+    <color name="progress_dim_green">#3DA1DF5D</color>
+    <color name="progress_color_text_color">#7C7D85</color>
+</resources>

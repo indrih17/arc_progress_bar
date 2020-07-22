@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <declare-styleable name="LineProgress">
+        <attr name="line_progress" format="integer" />
+        <attr name="line_stroke_width" format="dimension" />
+        <attr name="line_max" format="integer" />
+    </declare-styleable>
+</resources>
